@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Prototyping App</string>
+    <string name="user">User:</string>
+    <string name="start">Start</string>
 </resources>
