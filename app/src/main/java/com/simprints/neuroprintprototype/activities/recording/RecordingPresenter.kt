@@ -37,7 +37,7 @@ class RecordingPresenter(private val view: RecordingContract.View,
     override fun onStart() {
     }
 
-    override fun startRecording() {
+    override fun startRecording(user: User) {
         launch {
             launch(UI) { view.startRecordingUI() }
             sensorRecorder.startRecording()
@@ -46,7 +46,7 @@ class RecordingPresenter(private val view: RecordingContract.View,
                 delay(RECORDING_LENGTH_MILLIS / NUM_PROGRESS_UPDATES)
             }
             val recording = sensorRecorder.finishRecording()
-            recordingRepository.save(recording)
+            recordingRepository.save(recording.copy(user = user.name))
             launch(UI) { view.stopRecordingUI() }
         }
     }

@@ -22,7 +22,7 @@ interface RecordingContract {
 
         fun addUser(user: User)
 
-        fun startRecording()
+        fun startRecording(user: User)
 
         fun onStop()
 

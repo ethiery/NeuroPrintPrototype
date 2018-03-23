@@ -92,8 +92,11 @@ open class RecordingActivity : AppCompatActivity(), RecordingContract.View {
     }
 
     private fun start() {
-        presenter.startRecording()
+        presenter.startRecording(getSelectedUser())
     }
+
+    private fun getSelectedUser(): User =
+        User(name = spinner.selectedItem as String)
 
     override fun startRecordingUI() {
         startButton.isEnabled = false
